@@ -3,15 +3,18 @@ import TableCustom from "../components/TableCustom";
 import axios from "axios";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import toast from "react-hot-toast";
+import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const typeProduct = ["Mevalar", "Sabzavotlar", "Ziravorlar"];
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [refresh, setRefresh] = useState(false);
+  const navigate = useNavigate()
   useEffect(() => {
     axios("http://localhost:3000/products").then((res) => {
-      res.data.map((item, index) => {
+      res.data.map((item) => {
         item.productType = typeProduct[item.productType - 1];
         item.key = Math.random();
 
@@ -49,6 +52,14 @@ function Home() {
           <h2 className="text-[25px] font-bold">Mahsulotlar</h2>
           <p className="text-[15px] text-slate-500">Mahsulot ({products.length})</p>
         </div>
+        <Button onClick={() => navigate('/add-products')}
+          className="!bg-[#8b5800] hover:opacity-80 active:shadow-2xl"
+          type="primary"
+          htmlType="submit"
+          size="large "
+        >
+          Add Product
+        </Button>
       </div>
       <div className="mt-10">
         <TableCustom isLoading={isLoading} products={products} />
