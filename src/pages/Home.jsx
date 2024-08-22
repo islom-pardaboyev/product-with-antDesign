@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TableCustom from "../components/TableCustom";
 import axios from "axios";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import toast from "react-hot-toast";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { MainContext } from "../context/Context";
 
 function Home() {
+  const {products, setProducts} = useContext(MainContext)
   const typeProduct = ["Mevalar", "Sabzavotlar", "Ziravorlar"];
-  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [refresh, setRefresh] = useState(false);
   const navigate = useNavigate()
   useEffect(() => {
     axios("http://localhost:3000/products").then((res) => {
-      res.data.map((item) => {
+      res.data.map((item, index) => {
         item.productType = typeProduct[item.productType - 1];
         item.key = Math.random();
-
+        item.index = index + 1
         item.action = (
           <div className="flex space-x-2">
             <button
@@ -44,6 +45,8 @@ function Home() {
         toast.success("Ma'lumot O'chirildi")
       }, 300);
     });
+
+    
   }
   return (
     <div className="p-5">

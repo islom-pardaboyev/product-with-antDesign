@@ -1,12 +1,15 @@
 import { Button, DatePicker, Input } from "antd";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SelectCustom from "../components/SelectCustom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { MainContext } from "../context/Context";
+import { stringify } from "postcss";
 
 function AddProducts() {
-  const navigate = useNavigate()
+  const { products, setProducts } = useContext(MainContext);
+  const navigate = useNavigate();
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productType, setProductType] = useState("");
@@ -17,6 +20,7 @@ function AddProducts() {
   function handleAddProductSubmit(e) {
     e.preventDefault();
     const data = {
+      id: String(products.length > 0 ? Number(products[products.length - 1].id) + 1 : 1),
       productName,
       productPrice,
       productDate,
@@ -25,16 +29,17 @@ function AddProducts() {
     axios
       .post("http://localhost:3000/products", data)
       .then((res) => {
-        toast.success('Maxsulot Saqlandi!!')
+        toast.success("Maxsulot Saqlandi!!");
         setTimeout(() => {
-          navigate('/')
+          navigate("/");
         }, 800);
-        console.log(res.data)
-      }).catch(err => toast.error("Xatolik Mavjud!" ));
+        console.log(res.data);
+      })
+      .catch((err) => toast.error("Xatolik Mavjud!"));
   }
   return (
     <form onSubmit={handleAddProductSubmit}>
-      <div className="p-5 flex items-center justify-between">
+      <div className="flex items-center justify-between p-5">
         <h2 className="text-[25px] font-bold">Add Product</h2>
         <Button
           className="!bg-[#8b5800] hover:opacity-80 active:shadow-2xl"
@@ -51,6 +56,7 @@ function AddProducts() {
           onChange={(e) => setProductName(e.target.value)}
           className="p-2"
           allowClear
+          required
           name="productName"
           size="large"
           type="text"
@@ -61,6 +67,7 @@ function AddProducts() {
           onChange={(e) => setProductPrice(e.target.value)}
           className="p-2"
           allowClear
+          required
           name="productPrice "
           size="large"
           type="number"
@@ -70,7 +77,8 @@ function AddProducts() {
         <DatePicker
           name="productDate"
           size="large"
-          className="p-2 w-full"
+          required
+          className="w-full p-2"
           onChange={onChange}
         />
       </div>
