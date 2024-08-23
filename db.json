@@ -1,3 +1,25 @@
 {
-  "products": []
+  "products": [
+    {
+      "id": "1",
+      "productName": "Namangan",
+      "productPrice": "1000",
+      "productDate": "2024-08-06",
+      "productType": "3"
+    },
+    {
+      "id": "1",
+      "productName": "Apple",
+      "productPrice": "2000",
+      "productDate": "2024-08-06",
+      "productType": "1"
+    },
+    {
+      "id": "2",
+      "productName": "Islom",
+      "productPrice": "24234",
+      "productDate": "2024-08 -23",
+      "productType": "3"
+    }
+  ]
 }

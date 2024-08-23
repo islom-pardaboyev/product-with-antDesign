@@ -1,6 +1,6 @@
 import React from "react";
 import { Select } from "antd";
-const SelectCustom = ({ setProductType }) => {
+const SelectCustom = ({ setProductType, productType }) => {
   function handleChange(id) {
     setProductType(id);console.log(id);
     
@@ -9,9 +9,10 @@ const SelectCustom = ({ setProductType }) => {
     <Select
       size="large"
       allowClear
+      value={productType}
       onChange={handleChange}
       className="w-full"
-      placeholder="Turni Tanlang"
+      placeholder="Choose Product Type"
       filterOption={(input, option) =>
         (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
       }

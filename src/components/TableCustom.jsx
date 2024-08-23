@@ -6,19 +6,19 @@ const columns = [
     dataIndex: "index",
   },
   {
-    title: "Nomi",
+    title: "Name",
     dataIndex: "productName",
   },
   {
-    title: "Narxi",
+    title: "Price",
     dataIndex: "productPrice",
   },
   {
-    title: "Turi",
+    title: "Type",
     dataIndex: "productType",
   },
   {
-    title: "Muddati",
+    title: "Date",
     dataIndex: "productDate",
   },
   {
