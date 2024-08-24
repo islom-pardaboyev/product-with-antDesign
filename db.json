@@ -1,25 +1,18 @@
 {
   "products": [
     {
-      "id": "c434",
-      "productName": "islom",
-      "productPrice": "2345234",
-      "productDate": "2024-08 -24",
-      "productType": "3"
+      "productName": "adfasdfq",
+      "productPrice": "4234",
+      "productDate": "2024-08-05",
+      "productType": "2",
+      "id": "d78e"
     },
     {
-      "id": "d75c",
-      "productName": "Olcha",
-      "productPrice": "2345",
-      "productDate": "2024-08-22",
-      "productType": "3"
-    },
-    {
-      "id": "3bfc",
-      "productName": "Ulugbek",
-      "productPrice": "2345",
-      "productDate": "2024-08-12",
-      "productType": "3"
+      "productName": "Islom",
+      "productPrice": "234",
+      "productDate": "2024-08-03",
+      "productType": "2",
+      "id": "6708"
     }
   ]
 }

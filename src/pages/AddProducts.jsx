@@ -22,7 +22,7 @@ function AddProducts() {
   const [productName, setProductName] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
   const [productType, setProductType] = useState(null);
-  const [productDate, setProductDate] = useState(newDate);
+  const [productDate, setProductDate] = useState();
   const onChange = (date, dateString) => {
     setProductDate(dateString);
   };
@@ -125,7 +125,7 @@ function AddProducts() {
           setProductType={setProductType}
         />
         <DatePicker
-          value={dayjs(productDate, productDate)}
+          value={productDate ? dayjs(productDate, dateFormat) : null}
           name="productDate"
           size="large"
           required
