@@ -1,24 +1,24 @@
 {
   "products": [
     {
-      "id": "1",
-      "productName": "Namangan",
-      "productPrice": "1000",
-      "productDate": "2024-08-06",
+      "id": "c434",
+      "productName": "islom",
+      "productPrice": "2345234",
+      "productDate": "2024-08 -24",
       "productType": "3"
     },
     {
-      "id": "1",
-      "productName": "Apple",
-      "productPrice": "2000",
-      "productDate": "2024-08-06",
-      "productType": "1"
+      "id": "d75c",
+      "productName": "Olcha",
+      "productPrice": "2345",
+      "productDate": "2024-08-22",
+      "productType": "3"
     },
     {
-      "id": "2",
-      "productName": "Islom",
-      "productPrice": "24234",
-      "productDate": "2024-08 -23",
+      "id": "3bfc",
+      "productName": "Ulugbek",
+      "productPrice": "2345",
+      "productDate": "2024-08-12",
       "productType": "3"
     }
   ]

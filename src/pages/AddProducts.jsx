@@ -29,33 +29,36 @@ function AddProducts() {
   function handleAddProductSubmit(e) {
     e.preventDefault();
     const data = {
-      id: String(
-        products.length > 0 ? Number(products[products.length - 1].id) + 1 : 1
-      ),
       productName,
       productPrice,
       productDate,
       productType,
     };
     if (id) {
-      data.id = id
-      useAxios().put(`products/${id}`, data).then(res => {
-        toast.success("Successfully Added!")
-        setTimeout(() => {
-          navigate('/')
-        }, 800);
-      }).catch(err =>{
-        toast.error("Something went wrong!")
-      })
-    }else{
-      useAxios().post('products', data).then(res => {
-        toast.success("Successfully Added!")
-        setTimeout(() => {
-          navigate('/')
-        }, 800);
-      }).catch(err =>{
-        toast.error("Something went wrong!")
-      })
+      data.id = id;
+      useAxios()
+        .put(`products/${id}`, data)
+        .then((res) => {
+          toast.success("Successfully Added!");
+          setTimeout(() => {
+            navigate("/");
+          }, 800);
+        })
+        .catch((err) => {
+          toast.error("Something went wrong!");
+        });
+    } else {
+      useAxios()
+        .post("products", data)
+        .then((res) => {
+          toast.success("Successfully Added!");
+          setTimeout(() => {
+            navigate("/");
+          }, 800);
+        })
+        .catch((err) => {
+          toast.error("Something went wrong!");
+        });
     }
   }
 
